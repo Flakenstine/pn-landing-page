@@ -7,6 +7,7 @@ body {
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-image: linear-gradient(to right, #b441d5 0%, #6225ce 51%, #50106c 100%);
 
 }
 .wrapper {
@@ -48,7 +49,16 @@ body {
                 a {
                     text-decoration: none;
                     color: #fff;
-                    text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
+                    padding: 0.5rem;
+                    font-weight: 700;
+                    text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.57);
+                    &:hover {
+                        background-color: #6225ce;
+                        color: #e7e7e7;
+                        padding: 0.5rem;
+                        text-shadow: none;
+                        border-radius: 6px;
+                    }
                 }
             }
         }
@@ -98,7 +108,7 @@ body {
 .server-status-card {
     margin: 0 auto;
     margin-bottom: 10rem;
-    border-radius: 5px;
+    border-radius: 8px;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -156,6 +166,10 @@ body {
             li {
                 list-style-type: none;
                 padding: 1rem 1.2rem;
+                &:hover {
+                    color: #949494;
+                    cursor: pointer;
+                }
             }
         }
     }
@@ -179,6 +193,10 @@ body {
             a {
                 padding: 1.2rem;
                 font-size: 1.3rem;
+                &:hover {
+                    color: #949494;
+                    cursor: pointer;
+                }
             }
         }
         .footer-copyright {

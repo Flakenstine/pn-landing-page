@@ -66,6 +66,12 @@ const App = (props) => {
     );
   });
 
+  const copyToClipboard = () => {
+    const el = this.textArea;
+    el.select();
+    document.execCommand("copy")
+  }
+
   return (
     <div className="wrapper">
       <div className="video-background">
