@@ -3,13 +3,50 @@ import logo from './images/pn-logo.png';
 import logo_alt from './images/pn-full.png';
 import './styles/layout.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faDiscord, faFacebookF, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 import '@fontsource/open-sans';
 import { Button, Carousel, Nav, Navbar, NavbarBrand, NavLink } from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 
+const NavLinks = [
+  {
+    href: "https://forums.palace.network",
+    linkName: "Community"
+  },
+  {
+    href: "https://store.palace.network",
+    linkName: "Store"
+  },
+  {
+    href: "https://audio.palace.network",
+    linkName: "Audio Server"
+  },
+  {
+    href: "https://forums.palace.network/forum/60-help-center/",
+    linkName: "Support"
+  },
+]
+
+const FooterLinks = [
+  {
+    href: "https://forums.palace.network/topic/63-forum-rules-regulations",
+    linkName: "Terms of Use"
+  },
+  {
+    href: "https://forums.palace.network/privacy/",
+    linkName: "Privacy Policy"
+  },
+  {
+    href: "https://forums.palace.network/forum/60-help-center/",
+    linkName: "Help Me"
+  },
+  {
+    href: "https://forums.palace.network/application/",
+    linkName: "Join Our Team"
+  },
+]
 
 const App = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -17,6 +54,10 @@ const App = (props) => {
   const handleSelect = (selectedIndex, e) => {
     setActiveIndex(selectedIndex);
   }
+
+  const NavItems = NavLinks.map((link) => <NavLink key={link.linkName} href={link.href}>{link.linkName}</NavLink>)
+
+  const FooterNavItems = FooterLinks.map((link) => <li><a href={link.href}>{link.linkName}</a></li>)
 
   return (
     <div className="wrapper">
@@ -31,16 +72,11 @@ const App = (props) => {
       </div>
       <Navbar expand="lg">
         <NavbarBrand>
-          <img src={logo} alt="PN Logo" />
+          <img src={logo} href="#" alt="PN Logo" />
         </NavbarBrand>
         <NavbarToggle aria-controls="basic-navbar-nav" />
         <NavbarCollapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
-            <NavLink href="#">Community</NavLink>
-            <NavLink href="#">Store</NavLink>
-            <NavLink href="#">Audio Server</NavLink>
-            <NavLink href="#">Support</NavLink>
-          </Nav>
+          <Nav className="ml-auto">{NavItems}</Nav>
         </NavbarCollapse>
       </Navbar>
       <main className="content">
@@ -78,23 +114,19 @@ const App = (props) => {
       </main>
       <footer className="footer">
         <div className="footer-branding">
-          <img src={logo_alt} alt="PN Logo full" />
+          <img src={logo_alt} href="#" alt="PN Logo full" />
         </div>
         <div className="footer-nav">
-          <ul>
-            <li><a href=""></a>Terms of Use</li>
-            <li><a href=""></a>Privacy Policy</li>
-            <li><a href=""></a>Help me</li>
-            <li><a href=""></a>Join Our Team</li>
-          </ul>
+          <ul>{FooterNavItems}</ul>
         </div>
         <div className="footer-nav-lower">
           <div className="footer-locale-selector">English</div>
           <div className="footer-social-links">
-            <a><FontAwesomeIcon icon={faFacebookF} /></a>
-            <a><FontAwesomeIcon icon={faTwitter} /></a>
-            <a><FontAwesomeIcon icon={faYoutube} /></a>
-            <a><FontAwesomeIcon icon={faInstagram} /></a>
+            <a href="https://facebook.com/PalaceNetworkMC/"><FontAwesomeIcon icon={faFacebookF} /></a>
+            <a href="https://twitter.com/palacenetwork/"><FontAwesomeIcon icon={faTwitter} /></a>
+            <a href="https://youtube.com/mcmagicparks/"><FontAwesomeIcon icon={faYoutube} /></a>
+            <a href="https://instagram.com/PalaceNetwork/"><FontAwesomeIcon icon={faInstagram} /></a>
+            <a href="https://palnet.us/Discord"><FontAwesomeIcon icon={faDiscord} /></a>
           </div>
           <div className="footer-copyright">&copy; {new Date().getFullYear()} Palace Interactive, Inc.</div>
         </div>
