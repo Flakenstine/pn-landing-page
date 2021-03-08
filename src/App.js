@@ -17,7 +17,7 @@ import '@fontsource/open-sans';
 
 const items = [
   {
-    title: 'Be our guest',
+    title: 'Be Our Guest',
     caption: 'Experience the magic. 24/7. Non stop.'
   },
   {
