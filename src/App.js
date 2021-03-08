@@ -4,72 +4,18 @@ import logo_alt from './images/pn-full.png';
 import './styles/layout.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption,
-  ButtonToggle
-} from 'reactstrap';
+
 import '@fontsource/open-sans';
-
-
-const items = [
-  {
-    title: 'Be Our Guest',
-    caption: 'Experience the magic. 24/7. Non stop.'
-  },
-  {
-    title: 'Step into the Magic',
-    caption: 'The number one destination for an all-inclusive family friendly experience.'
-  },
-  {
-    title: 'We are Palace Network',
-    caption: 'We love to create family friendly experiences in Minecraft.'
-  }
-];
+import { Button, Carousel, Nav, Navbar, NavbarBrand, NavLink } from 'react-bootstrap';
+import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
+import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 
 
 const App = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
 
-  const next = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
-    setActiveIndex(nextIndex);
-  }
-
-  const previous = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
-    setActiveIndex(nextIndex);
-  }
-
-  const goToIndex = (newIndex) => {
-    if (animating) return;
-    setActiveIndex(newIndex);
-  }
-
-
-  const slides = items.map((item) => {
-    return (
-      <CarouselItem
-        onExiting={() => setAnimating(true)}
-        onExited={() => setAnimating(false)}
-        key={item.src}
-      >
-        <img src={item.src} alt={item.altText} />
-        <CarouselCaption captionText={item.caption} captionHeader={item.title} />
-      </CarouselItem>
-    );
-  });
-
-  const copyToClipboard = () => {
-    const el = this.textArea;
-    el.select();
-    document.execCommand("copy")
+  const handleSelect = (selectedIndex, e) => {
+    setActiveIndex(selectedIndex);
   }
 
   return (
@@ -83,33 +29,52 @@ const App = (props) => {
           </div>
         </div>
       </div>
-      <header className="header">
-        <div className="header-branding">
+      <Navbar expand="lg">
+        <NavbarBrand>
           <img src={logo} alt="PN Logo" />
-        </div>
-        <nav className="header-navigation">
-          <ul>
-            <li><a href="">Community</a></li>
-            <li><a href="">Store</a></li>
-            <li><a href="">Audio Server</a></li>
-            <li><a href="">Support</a></li>
-          </ul>
-        </nav>
-      </header>
+        </NavbarBrand>
+        <NavbarToggle aria-controls="basic-navbar-nav" />
+        <NavbarCollapse id="basic-navbar-nav">
+          <Nav className="ml-auto">
+            <NavLink href="#">Community</NavLink>
+            <NavLink href="#">Store</NavLink>
+            <NavLink href="#">Audio Server</NavLink>
+            <NavLink href="#">Support</NavLink>
+          </Nav>
+        </NavbarCollapse>
+      </Navbar>
       <main className="content">
-        <Carousel
-        activeIndex={activeIndex}
-        next={next}
-        previous={previous}
-      >
-            {slides}
-      </Carousel>
-      <div className="server-status-card">
-        <h1>Come experience the magic today</h1>
-        <p><b>150</b> players online</p>
-        <button className="btn btn-primary">play.palace.network</button>
-        <span>Palace Network supports Minecraft <b>1.12 - 1.15</b></span>
-      </div>
+        <Carousel controls={false} indicators={false} activeIndex={activeIndex} onSelect={handleSelect}>
+          <Carousel.Item>
+            <Carousel.Caption>
+              <h1>Step Into the Magic</h1>
+              <h6>The Number One destination for an all inclusive <br /> Family Friendly Experience.</h6>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Carousel.Caption>
+              <h1>Be Our Guest</h1>
+              <h6>Experience the magic. 24/7. Non-stop.</h6>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Carousel.Caption>
+              <div className="badge">
+                <span className="badge badge-pill badge-primary">Popular</span>
+              </div>
+              <h1>Attraction Sponsorship</h1>
+              <h6>Get involved with the process of recreating the Magic.</h6>
+              <Button variant="primary">Learn More</Button>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+
+        <div className="server-status-card">
+          <h1>Come Experience The Magic Today!</h1>
+          <p><b>150 </b>Players Online</p>
+          <button className="btn btn-primary">play.palace.network</button>
+          <span>Palace Network supports Minecraft <b>1.12 - 1.15</b></span>
+        </div>
       </main>
       <footer className="footer">
         <div className="footer-branding">

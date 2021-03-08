@@ -16,6 +16,58 @@ body {
     justify-content: space-between;
     min-height: 100vh;
 }
+.navbar {
+    .navbar-brand {
+        margin-left: 2rem;
+        img {
+            height: 48px;
+            width: 48px;
+        }
+    }
+    .navbar-nav {
+        margin-right: 3.42rem;
+        .nav-link {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 700;
+            text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.57);
+            padding: 0.56rem 1.3rem;
+            cursor: pointer;
+            &:hover {
+                background-color: #6225ce;
+                color: #e7e7e7;
+                padding: 0.56rem 1.3rem;
+                text-shadow: none;
+                border-radius: 7px;
+            }
+        }
+    }
+    // .nav {
+    //     margin-right: 3rem;
+    //     .nav-item {
+    //         font-size: calc(10px + 5vim);
+    //         padding: 0.5rem .75rem;
+    //         .nav-link {
+    //             text-decoration: none;
+    //             color: #fff;
+    //             font-weight: 700;
+    //             text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.57);
+    //             padding: 0.75rem;
+    //             cursor: pointer;
+    //             &:hover {
+    //                 background-color: #6225ce;
+    //                 color: #e7e7e7;
+    //                 padding: 0.75rem;
+    //                 text-shadow: none;
+    //                 border-radius: 7px;
+    //             }
+    //         }
+    //     }
+    // }
+}
+
+
+
 .header {
     position: absolute;
     display: flex;
@@ -67,7 +119,7 @@ body {
 .main {
     flex: 1 0 auto;
 }
-.carousel{
+.carousel {
     position: relative;
     margin-top: 10rem;
     line-height: 20px;
@@ -76,17 +128,17 @@ body {
   
   .carousel-caption {
     color: #fff;
-    // font-family: 'Open Sans', sans-serif;
     top: 100%;
     text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
                  0px 8px 13px rgba(0,0,0,0.1),
                  0px 18px 23px rgba(0,0,0,0.1);
-    h3 {
+    h1 {
         font-size: 2.5rem;
         font-weight: 800;
     }
-    p {
-        font-size: 1.2rem;
+    h6 {
+        font-size: 1.3rem;
+        text-transform: uppercase;
         font-weight: 800;
     }
   }
@@ -105,6 +157,14 @@ body {
     overflow: unset !important;
   }
 
+  .badge {
+    color: white;
+    border: none;
+    text-shadow: 0px 0px #000000;
+    font-size: 1.1rem;
+  }
+  
+
 .server-status-card {
     margin: 0 auto;
     margin-bottom: 10rem;
@@ -113,7 +173,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #390b64;
+    background-color:  #5c278e;
     width: 900px;
     padding: 1.5rem 2rem;
     box-shadow: 0 3px 3px rgba(0,0,0,0.2);
@@ -123,25 +183,8 @@ body {
         font-weight: 700;
     }
     .btn {
-        position: relative;
-        flex: 1 1 auto;
-        margin: 0px;
         margin-bottom: 15px;
-        padding: 10px;
-        width: 250px;
-        right: 9px;
-        text-align: center;
-        transition: 0.7s;
-        background-size: 200% auto;
-        color: white;
-        font-weight: 800;
-        text-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-        border-radius: 10px;
-        border: none;
         background-image: linear-gradient(to right, #b441d5 0%, #6225ce 51%, #50106c 100%);
-        &:hover {
-            background-position: right center;
-        }
     }
 }
 .footer {
@@ -204,3 +247,28 @@ body {
         }
     }
 }
+
+// other custom classes
+
+.btn {
+    position: relative;
+    flex: 1 1 auto;
+    margin: -2px;
+    padding: 10px;
+    width: 250px;
+    top: 11px;
+    right: 9px;
+    text-align: center;
+    transition: 0.7s;
+    background-size: 200% auto;
+    color: white;
+    font-weight: 800;
+    text-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    border: none;
+    background-image: linear-gradient(to right, #007bff  0%, #2b84e2 51%,#38b8df 100%);
+    &:hover {
+        background-position: right center;
+    }
+}
+  
