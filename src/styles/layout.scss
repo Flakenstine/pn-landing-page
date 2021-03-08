@@ -59,7 +59,7 @@ body {
 }
 .carousel{
     position: relative;
-    margin-top: 5rem;
+    margin-top: 10rem;
     line-height: 20px;
     height: 250px;
   }
@@ -99,24 +99,26 @@ body {
 
 .server-status-card {
     margin: 0 auto;
-    margin-bottom: 2rem;
+    margin-bottom: 10rem;
     border-radius: 5px;
     color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #390b64;
-    width: 700px;
+    width: 900px;
     padding: 1.5rem 2rem;
     box-shadow: 0 3px 3px rgba(0,0,0,0.2);
     h1 {
-        font-size: 1.5rem;
-        font-weight: 800;
+        margin-top: 15px;
+        font-size: 1.6rem;
+        font-weight: 700;
     }
     .btn {
         position: relative;
         flex: 1 1 auto;
-        margin: -2px;
+        margin: 0px;
+        margin-bottom: 15px;
         padding: 10px;
         width: 250px;
         right: 9px;
@@ -128,7 +130,7 @@ body {
         text-shadow: 0px 0px 10px rgba(0,0,0,0.2);
         border-radius: 10px;
         border: none;
-        background-image: linear-gradient(to right, #007bff  0%, #2b84e2 51%,#38b8df 100%);
+        background-image: linear-gradient(to right, #b441d5 0%, #6225ce 51%, #50106c 100%);
         &:hover {
             background-position: right center;
         }

@@ -23,6 +23,10 @@ const items = [
   {
     title: 'Step into the Magic',
     caption: 'The number one destination for an all-inclusive family friendly experience.'
+  },
+  {
+    title: 'We are Palace Network',
+    caption: 'We love to create family friendly experiences in Minecraft.'
   }
 ];
 
@@ -98,6 +102,7 @@ const App = (props) => {
         <h1>Come experience the magic today</h1>
         <p><b>150</b> players online</p>
         <button className="btn btn-primary">play.palace.network</button>
+        <span>Palace Network supports Minecraft <b>1.12 - 1.15</b></span>
       </div>
       </main>
       <footer className="footer">
