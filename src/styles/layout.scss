@@ -17,8 +17,9 @@ body {
     min-height: 100vh;
 }
 .navbar {
+    margin-top: -6rem; //temp for 1440p
     .navbar-brand {
-        margin-left: 2rem;
+        margin-left: 5rem;
         img {
             height: 48px;
             width: 48px;
@@ -87,25 +88,42 @@ body {
 }
 .server-status-card {
     margin: 0 auto;
-    margin-bottom: 10rem;
-    border-radius: 8px;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    border-radius: 20px;
     color: #fff;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    background-color:  #5c278e;
+    background-image: linear-gradient(to left, #b441d5 0%, #6225ce 51%, #50106c 100%);
     width: 945px;
-    padding: 1.5rem 2rem;
+    padding: 2.5rem 2rem;
     box-shadow: 0 3px 3px rgba(0,0,0,0.2);
-    h1 {
-        margin-top: 15px;
-        font-size: 1.6rem;
-        font-weight: 700;
+    .server-status-card-col-left {
+        display: flex;
+        margin-left: 2rem;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        h1 {
+            margin-top: 5px;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+        h6 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
     }
-    .btn {
-        margin-bottom: 15px;
-        background-image: linear-gradient(to right, #b441d5 0%, #6225ce 51%, #50106c 100%);
+    .server-status-card-col-right {
+        .btn {
+            margin-bottom: 15px;
+            border-radius: 20px;
+            background-image: none !important;
+            background-color: #34146d;
+        }
     }
+
 }
 .footer {
     flex-shrink: 0;

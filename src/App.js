@@ -9,6 +9,8 @@ import '@fontsource/open-sans';
 import { Button, Carousel, Nav, Navbar, NavbarBrand, NavLink } from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
+import { faAngleRight, faCopy } from '@fortawesome/free-solid-svg-icons';
+import { faClone } from '@fortawesome/free-regular-svg-icons';
 
 const NavLinks = [
   {
@@ -62,7 +64,7 @@ const App = (props) => {
   return (
     <div className="wrapper">
       <div className="video-background">
-        <div classNam="video-wrap">
+        <div className="video-wrap">
           <div id="video">
             <video id="bgvid" autoPlay loop muted playsInline>
               <source src="https://cdn.palace.network/landing-page/background-video-1.mp4" type="video/mp4" />
@@ -106,10 +108,19 @@ const App = (props) => {
         </Carousel>
 
         <div className="server-status-card">
-          <h1>Come Experience The Magic Today!</h1>
+          <div className="server-status-card-col-left">
+            <h1>Come Experience The Magic Today</h1>
+            <h6><b>150</b> Players Online</h6>
+            <p>Palace Network supports Minecraft <b>1.12 - 1.15</b></p>
+          </div>
+          <div className="server-status-card-col-right ml-auto">
+            <button className="btn btn-primary"><span><FontAwesomeIcon icon={faClone} /></span> play.palace.network</button>
+          </div>
+      
+          {/* <h1>Come Experience The Magic Today!</h1>
           <p><b>150 </b>Players Online</p>
           <button className="btn btn-primary">play.palace.network</button>
-          <span>Palace Network supports Minecraft <b>1.12 - 1.15</b></span>
+          <span>Palace Network supports Minecraft <b>1.12 - 1.15</b></span> */}
         </div>
       </main>
       <footer className="footer">
