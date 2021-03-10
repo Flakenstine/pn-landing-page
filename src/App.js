@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './images/pn-logo.png';
 import logo_alt from './images/pn-full.png';
 import './styles/layout.scss';
@@ -10,6 +10,7 @@ import { Button, Carousel, Container, Nav, Navbar, NavbarBrand, NavLink } from '
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import { faClone } from '@fortawesome/free-regular-svg-icons';
+import axios from 'axios';
 
 const NavLinks = [
   {
@@ -51,10 +52,24 @@ const FooterLinks = [
 
 const App = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [response, setResponse] = useState({ data: []});
 
   const handleSelect = (selectedIndex, e) => {
     setActiveIndex(selectedIndex);
   }
+
+
+
+  useEffect(() => {
+    const apiHeaders = {
+      headers: { 'service-api-key': 'CtKzrnLfhjGgwlwLd7Nqp2fx3KneSUQo'}
+    }
+    async function fetchData () {
+      const result = await axios.get('https://internal-api.palace.network/minecraft/server/online', apiHeaders);
+      setResponse(result);
+    }
+    fetchData();
+  }, [])
 
   const NavItems = NavLinks.map((link) => <NavLink key={link.linkName} href={link.href}>{link.linkName}</NavLink>)
 
@@ -111,7 +126,7 @@ const App = () => {
         <div className="server-status-card">
           <div className="server-status-card-col-left">
             <h1>Come Experience The Magic Today</h1>
-            <h6><b>150</b> Players Online</h6>
+            <h6><b>{response.data.players}</b> Players Online</h6>
             <p>Palace Network supports Minecraft <b>1.12 - 1.15</b></p>
           </div>
           <div className="server-status-card-col-right ml-auto">
