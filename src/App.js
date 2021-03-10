@@ -6,10 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiscord, faFacebookF, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 import '@fontsource/open-sans';
-import { Button, Carousel, Nav, Navbar, NavbarBrand, NavLink } from 'react-bootstrap';
+import { Button, Carousel, Container, Nav, Navbar, NavbarBrand, NavLink } from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
-import { faAngleRight, faCopy } from '@fortawesome/free-solid-svg-icons';
 import { faClone } from '@fortawesome/free-regular-svg-icons';
 
 const NavLinks = [
@@ -50,7 +49,7 @@ const FooterLinks = [
   },
 ]
 
-const App = (props) => {
+const App = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
@@ -72,7 +71,18 @@ const App = (props) => {
           </div>
         </div>
       </div>
-      <Navbar expand="lg">
+      <Container fluid>
+        <Navbar expand="lg">
+          <NavbarBrand>
+            <img src={logo} href="#" alt="PN Logo" />
+          </NavbarBrand>
+          <NavbarToggle aria-controls="basic-navbar-nav" />
+          <NavbarCollapse id="basic-navbar-nav">
+            <Nav className="ml-auto">{NavItems}</Nav>
+          </NavbarCollapse>
+        </Navbar>
+      </Container>
+      {/* <Navbar expand="lg">
         <NavbarBrand>
           <img src={logo} href="#" alt="PN Logo" />
         </NavbarBrand>
@@ -80,7 +90,7 @@ const App = (props) => {
         <NavbarCollapse id="basic-navbar-nav">
           <Nav className="ml-auto">{NavItems}</Nav>
         </NavbarCollapse>
-      </Navbar>
+      </Navbar> */}
       <main className="content">
         <Carousel controls={false} indicators={false} activeIndex={activeIndex} onSelect={handleSelect}>
           <Carousel.Item>
@@ -131,7 +141,16 @@ const App = (props) => {
           <ul>{FooterNavItems}</ul>
         </div>
         <div className="footer-nav-lower">
-          <div className="footer-locale-selector">English</div>
+          <div className="nav-section">English</div>
+          <div className="nav-section footer-social-links">
+            <a href="https://facebook.com/PalaceNetworkMC/"><FontAwesomeIcon icon={faFacebookF} /></a>
+            <a href="https://twitter.com/palacenetwork/"><FontAwesomeIcon icon={faTwitter} /></a>
+            <a href="https://youtube.com/mcmagicparks/"><FontAwesomeIcon icon={faYoutube} /></a>
+            <a href="https://instagram.com/PalaceNetwork/"><FontAwesomeIcon icon={faInstagram} /></a>
+            <a href="https://palnet.us/Discord"><FontAwesomeIcon icon={faDiscord} /></a>
+          </div>
+          <div className="nav-section footer-copyright">&copy; {new Date().getFullYear()} Palace Interactive, Inc.</div>
+          {/* <div className="fofooter-locale-selector">English</div>
           <div className="footer-social-links">
             <a href="https://facebook.com/PalaceNetworkMC/"><FontAwesomeIcon icon={faFacebookF} /></a>
             <a href="https://twitter.com/palacenetwork/"><FontAwesomeIcon icon={faTwitter} /></a>
@@ -139,7 +158,7 @@ const App = (props) => {
             <a href="https://instagram.com/PalaceNetwork/"><FontAwesomeIcon icon={faInstagram} /></a>
             <a href="https://palnet.us/Discord"><FontAwesomeIcon icon={faDiscord} /></a>
           </div>
-          <div className="footer-copyright">&copy; {new Date().getFullYear()} Palace Interactive, Inc.</div>
+          <div className="footer-copyright">&copy; {new Date().getFullYear()} Palace Interactive, Inc.</div> */}
         </div>
       </footer>
     </div>

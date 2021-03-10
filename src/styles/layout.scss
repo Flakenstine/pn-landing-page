@@ -1,5 +1,8 @@
+@import './responsive';
 @import '~bootstrap/scss/bootstrap.scss';
 @import './vidbg.scss';
+
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -17,7 +20,6 @@ body {
     min-height: 100vh;
 }
 .navbar {
-    margin-top: -6rem; //temp for 1440p
     .navbar-brand {
         margin-left: 5rem;
         img {
@@ -26,7 +28,7 @@ body {
         }
     }
     .navbar-nav {
-        margin-right: 3.42rem;
+        // margin-right: 3.42rem;
         .nav-link {
             text-decoration: none;
             color: #fff;
@@ -42,6 +44,13 @@ body {
                 border-radius: 7px;
             }
         }
+    }
+    // responsive
+    @include rwd(2560) {
+        margin-top: -6rem;
+    }
+    @include xl {
+        margin-top: 0;
     }
 }
 .main {
@@ -129,12 +138,12 @@ body {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     background-color: #414141;
     color: #d3d3d3;
     .footer-branding {
-        padding-top: 2rem;
+        margin: 0 auto;
+        padding-top: 1.5rem;
         img {
             height: 100px;
         }
@@ -146,8 +155,8 @@ body {
             flex-direction: row;
             li {
                 list-style-type: none;
-                padding: 1rem 1.2rem;
-                a {
+                padding: 1rem 1.1rem;
+                a { 
                     color: #d3d3d3;
                     &:hover {
                         color: #949494;
@@ -157,24 +166,20 @@ body {
                 }
             }
         }
-    }
+    } 
     .footer-nav-lower {
-        margin: 0 auto;
-        padding-bottom: 0.5rem;
         display: flex;
-        width: 100vw;
         justify-content: space-between;
         align-items: center;
-        flex-direction: row;
-        .footer-locale-selector {
-            margin: 0 auto;
-            width: 220px;
+        min-width: 100vw;
+        .nav-section {
+            text-align: center;
+            width: 14%;
+            margin-bottom: 2%;
         }
         .footer-social-links {
-            margin: 0 auto;
             padding: 1rem 2rem;
             text-align: center;
-            width: 400px;
             a {
                 padding: 1.2rem;
                 font-size: 1.3rem;
@@ -185,9 +190,6 @@ body {
                     text-decoration: none;
                 }
             }
-        }
-        .footer-copyright {
-            margin: 0 auto;
         }
     }
 }
@@ -215,4 +217,33 @@ body {
         background-position: right center;
     }
 }
-  
+
+
+@include sm {
+    .footer-nav-lower {
+        .nav-section {
+            width: 30% !important;
+        }
+    }
+}
+@include md {
+    .footer-nav-lower {
+        .nav-section {
+            width: 20% !important;
+        }
+    }
+}
+@include xl {
+    .footer-nav-lower {
+        .nav-section {
+            width: 14% !important;
+        }
+    }
+}
+@include rwd(2560) {
+    .footer-nav-lower {
+        .nav-section {
+            width: 14% !important;
+        }
+    }
+}
