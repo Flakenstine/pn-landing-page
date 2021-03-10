@@ -13,6 +13,11 @@ body {
     background-image: linear-gradient(to right, #b441d5 0%, #6225ce 51%, #50106c 100%);
 
 }
+p {
+    text-align: center;
+    font-size: 1rem;
+    color: #d3d3d3;
+}
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -47,7 +52,7 @@ body {
     }
     // responsive
     @include rwd(2560) {
-        margin-top: -6rem;
+        margin-top: -5rem;
     }
     @include xl {
         margin-top: 0;

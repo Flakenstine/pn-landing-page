@@ -82,15 +82,6 @@ const App = () => {
           </NavbarCollapse>
         </Navbar>
       </Container>
-      {/* <Navbar expand="lg">
-        <NavbarBrand>
-          <img src={logo} href="#" alt="PN Logo" />
-        </NavbarBrand>
-        <NavbarToggle aria-controls="basic-navbar-nav" />
-        <NavbarCollapse id="basic-navbar-nav">
-          <Nav className="ml-auto">{NavItems}</Nav>
-        </NavbarCollapse>
-      </Navbar> */}
       <main className="content">
         <Carousel controls={false} indicators={false} activeIndex={activeIndex} onSelect={handleSelect}>
           <Carousel.Item>
@@ -126,11 +117,6 @@ const App = () => {
           <div className="server-status-card-col-right ml-auto">
             <button className="btn btn-primary"><span><FontAwesomeIcon icon={faClone} /></span> play.palace.network</button>
           </div>
-      
-          {/* <h1>Come Experience The Magic Today!</h1>
-          <p><b>150 </b>Players Online</p>
-          <button className="btn btn-primary">play.palace.network</button>
-          <span>Palace Network supports Minecraft <b>1.12 - 1.15</b></span> */}
         </div>
       </main>
       <footer className="footer">
@@ -150,15 +136,6 @@ const App = () => {
             <a href="https://palnet.us/Discord"><FontAwesomeIcon icon={faDiscord} /></a>
           </div>
           <div className="nav-section footer-copyright">&copy; {new Date().getFullYear()} Palace Interactive, Inc.</div>
-          {/* <div className="fofooter-locale-selector">English</div>
-          <div className="footer-social-links">
-            <a href="https://facebook.com/PalaceNetworkMC/"><FontAwesomeIcon icon={faFacebookF} /></a>
-            <a href="https://twitter.com/palacenetwork/"><FontAwesomeIcon icon={faTwitter} /></a>
-            <a href="https://youtube.com/mcmagicparks/"><FontAwesomeIcon icon={faYoutube} /></a>
-            <a href="https://instagram.com/PalaceNetwork/"><FontAwesomeIcon icon={faInstagram} /></a>
-            <a href="https://palnet.us/Discord"><FontAwesomeIcon icon={faDiscord} /></a>
-          </div>
-          <div className="footer-copyright">&copy; {new Date().getFullYear()} Palace Interactive, Inc.</div> */}
         </div>
       </footer>
     </div>
