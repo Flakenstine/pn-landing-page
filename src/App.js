@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiscord, faFacebookF, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 import '@fontsource/open-sans';
-import { Button, Carousel, Container, Nav, Navbar, NavbarBrand, NavLink } from 'react-bootstrap';
+import { Button, Carousel, Container, Nav, Navbar, NavbarBrand, NavLink, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import { faClone } from '@fortawesome/free-regular-svg-icons';
@@ -126,11 +126,17 @@ const App = () => {
         <div className="server-status-card">
           <div className="server-status-card-col-left">
             <h1>Come Experience The Magic Today</h1>
-            <h6><b>{response.data.players}</b> Players Online</h6>
+            <h6><b>{(response.data.players > 0) ? response.data.players : 0}</b> Players Online</h6>
             <p>Palace Network supports Minecraft <b>1.12 - 1.15</b></p>
           </div>
           <div className="server-status-card-col-right ml-auto">
-            <button className="btn btn-primary"><span><FontAwesomeIcon icon={faClone} /></span> play.palace.network</button>
+            <OverlayTrigger key='top' placement='top' overlay={
+              <Tooltip id='tooltip-top'>
+                Click to copy IP
+              </Tooltip>
+            }>
+              <button className="btn btn-primary"><span><FontAwesomeIcon icon={faClone} /></span> play.palace.network</button>
+            </OverlayTrigger>
           </div>
         </div>
       </main>
