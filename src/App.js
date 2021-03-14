@@ -3,7 +3,7 @@ import logo from './images/pn-logo.png';
 import logo_alt from './images/pn-full.png';
 import './styles/layout.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDiscord, faFacebookF, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faDiscord, faFacebookF, faInstagram, faTwitch, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 import '@fontsource/open-sans';
 import { Button, Carousel, Container, Nav, Navbar, NavbarBrand, NavLink, OverlayTrigger, Tooltip } from 'react-bootstrap';
@@ -77,15 +77,9 @@ const App = () => {
 
   return (
     <div className="wrapper">
-      <div className="video-background">
-        <div className="video-wrap">
-          <div id="video">
-            <video id="bgvid" autoPlay loop muted playsInline>
-              <source src="https://cdn.palace.network/landing-page/background-video-1.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </div>
-      </div>
+      <video autoPlay loop muted playsInline>
+        <source src="https://cdn.palace.network/landing-page/background-video-1.mp4" type="video/mp4" />
+      </video>
       <Container fluid>
         <Navbar expand="lg">
           <NavbarBrand>
@@ -150,10 +144,9 @@ const App = () => {
         <div className="footer-nav-lower">
           <div className="nav-section">English</div>
           <div className="nav-section footer-social-links">
-            <a href="https://facebook.com/PalaceNetworkMC/"><FontAwesomeIcon icon={faFacebookF} /></a>
+            <a href="https://twitch.tv/palacenetwork"><FontAwesomeIcon icon={faTwitch} /></a>
             <a href="https://twitter.com/palacenetwork/"><FontAwesomeIcon icon={faTwitter} /></a>
-            <a href="https://youtube.com/mcmagicparks/"><FontAwesomeIcon icon={faYoutube} /></a>
-            <a href="https://instagram.com/PalaceNetwork/"><FontAwesomeIcon icon={faInstagram} /></a>
+            <a href="https://www.youtube.com/channel/UCaOrLxRoCvv-DWfLa0poVFQ"><FontAwesomeIcon icon={faYoutube} /></a>
             <a href="https://palnet.us/Discord"><FontAwesomeIcon icon={faDiscord} /></a>
           </div>
           <div className="nav-section footer-copyright">&copy; {new Date().getFullYear()} Palace Interactive, Inc.</div>

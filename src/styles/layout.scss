@@ -1,6 +1,5 @@
 @import './responsive';
 @import '~bootstrap/scss/bootstrap.scss';
-@import './vidbg.scss';
 
 
 body {
@@ -18,11 +17,25 @@ p {
     font-size: 1rem;
     color: #d3d3d3;
 }
+video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+    transition: 1s opacity;
+}
 .wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
+    z-index: 999;
 }
 .navbar {
     .navbar-brand {
@@ -33,7 +46,6 @@ p {
         }
     }
     .navbar-nav {
-        // margin-right: 3.42rem;
         .nav-link {
             text-decoration: none;
             color: #fff;
@@ -49,10 +61,6 @@ p {
                 border-radius: 7px;
             }
         }
-    }
-    // responsive
-    @include rwd(2560) {
-        margin-top: -5rem;
     }
     @include xl {
         margin-top: 0;
@@ -140,7 +148,6 @@ p {
 
 }
 .footer {
-    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
