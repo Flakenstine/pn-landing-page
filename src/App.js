@@ -3,10 +3,10 @@ import logo from './images/pn-logo.png';
 import logo_alt from './images/pn-full.png';
 import './styles/layout.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDiscord, faFacebookF, faInstagram, faTwitch, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faDiscord, faTwitch, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 import '@fontsource/open-sans';
-import { Button, Carousel, Container, Nav, Navbar, NavbarBrand, NavLink, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Button, Carousel, Container, Nav, Navbar, NavbarBrand, NavLink, OverlayTrigger, Tooltip} from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import { faClone } from '@fortawesome/free-regular-svg-icons';
@@ -53,12 +53,21 @@ const FooterLinks = [
 const App = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [response, setResponse] = useState({ data: []});
+  const [copiedText, setCopiedText] = useState(false);
+  const timeoutRef = React.useRef(null);
 
   const handleSelect = (selectedIndex, e) => {
     setActiveIndex(selectedIndex);
   }
 
-
+  const copyToClipBoard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedText(true);
+    } catch (err) {
+      setCopiedText(false);
+    }
+  }
 
   useEffect(() => {
     const apiHeaders = {
@@ -70,6 +79,17 @@ const App = () => {
     }
     fetchData();
   }, [])
+
+  useEffect(() => {
+    if (timeoutRef.current !== null) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    timeoutRef.current = setTimeout(() => {
+      timeoutRef.current = null;
+      setCopiedText(false);
+    }, 800);
+  }, [copiedText])
 
   const NavItems = NavLinks.map((link) => <NavLink key={link.linkName} href={link.href}>{link.linkName}</NavLink>)
 
@@ -112,7 +132,7 @@ const App = () => {
               </div>
               <h1>Attraction Sponsorship</h1>
               <h6>Get involved with the process of recreating the Magic.</h6>
-              <Button variant="primary">Learn More</Button>
+              <Button variant="primary" href="https://forums.palace.network/topic/6644-introducing-attraction-sponsorships-sponsor-tiers/">Learn More</Button>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
@@ -124,12 +144,13 @@ const App = () => {
             <p>Palace Network supports Minecraft <b>1.12 - 1.15</b></p>
           </div>
           <div className="server-status-card-col-right ms-auto">
+
             <OverlayTrigger key='top' placement='top' overlay={
               <Tooltip id='tooltip-top'>
                 Click to copy IP
               </Tooltip>
             }>
-              <button className="btn btn-primary"><span><FontAwesomeIcon icon={faClone} /></span> play.palace.network</button>
+              <button className="btn btn-primary" onClick={() => copyToClipBoard('play.palace.network')} ><span><FontAwesomeIcon icon={faClone} /></span> {copiedText ? 'Copied to clipboard' : 'play.palace.network'}</button>
             </OverlayTrigger>
           </div>
         </div>
