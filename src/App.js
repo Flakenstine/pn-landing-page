@@ -87,7 +87,7 @@ const App = () => {
           </NavbarBrand>
           <NavbarToggle aria-controls="basic-navbar-nav" />
           <NavbarCollapse id="basic-navbar-nav">
-            <Nav className="ml-auto">{NavItems}</Nav>
+            <Nav className="ms-auto">{NavItems}</Nav>
           </NavbarCollapse>
         </Navbar>
       </Container>
@@ -123,7 +123,7 @@ const App = () => {
             <h6><b>{(response.data.players > 0) ? response.data.players : 0}</b> Players Online</h6>
             <p>Palace Network supports Minecraft <b>1.12 - 1.15</b></p>
           </div>
-          <div className="server-status-card-col-right ml-auto">
+          <div className="server-status-card-col-right ms-auto">
             <OverlayTrigger key='top' placement='top' overlay={
               <Tooltip id='tooltip-top'>
                 Click to copy IP

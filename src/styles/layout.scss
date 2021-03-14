@@ -1,6 +1,4 @@
-@import './responsive';
 @import '~bootstrap/scss/bootstrap.scss';
-
 
 body {
     margin: 0;
@@ -62,9 +60,6 @@ video {
             }
         }
     }
-    @include xl {
-        margin-top: 0;
-    }
 }
 .main {
     flex: 1 0 auto;
@@ -121,6 +116,10 @@ video {
     width: 945px;
     padding: 2.5rem 2rem;
     box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+    transition: all .25s linear; 
+    -o-transition: all .25s linear; 
+    -moz-transition: all .25s linear; 
+    -webkit-transition: all .25s linear;
     .server-status-card-col-left {
         display: flex;
         margin-left: 2rem;
@@ -145,7 +144,15 @@ video {
             background-color: #34146d;
         }
     }
-
+    @include media-breakpoint-between(md, lg) {
+        width: 785px;
+    }
+    @include media-breakpoint-between(lg, xl) {
+        width: 945px;
+    }
+    @include media-breakpoint-up(xl) {
+        width: 985px;
+    }
 }
 .footer {
     display: flex;
@@ -170,10 +177,11 @@ video {
                 padding: 1rem 1.1rem;
                 a { 
                     color: #d3d3d3;
+                    text-decoration: none;
                     &:hover {
                         color: #949494;
                         cursor: pointer;
-                        text-decoration: none;
+                        text-decoration: none; 
                     }
                 }
             }
@@ -229,32 +237,3 @@ video {
     }
 }
 
-
-@include sm {
-    .footer-nav-lower {
-        .nav-section {
-            width: 30% !important;
-        }
-    }
-}
-@include md {
-    .footer-nav-lower {
-        .nav-section {
-            width: 20% !important;
-        }
-    }
-}
-@include xl {
-    .footer-nav-lower {
-        .nav-section {
-            width: 14% !important;
-        }
-    }
-}
-@include rwd(2560) {
-    .footer-nav-lower {
-        .nav-section {
-            width: 14% !important;
-        }
-    }
-}
