@@ -108,7 +108,7 @@ const App = () => {
           <Carousel.Item>
             <Carousel.Caption>
               <div className="badge">
-                <span className="badge badge-pill badge-primary">Popular</span>
+                <span className="badge rounded-pill bg-primary">Popular</span>
               </div>
               <h1>Attraction Sponsorship</h1>
               <h6>Get involved with the process of recreating the Magic.</h6>
