@@ -271,9 +271,14 @@ video {
             display: flex;
             flex-direction: row;
             margin: 0 auto;
+            padding-left: 0;
             li {
                 list-style-type: none;
                 padding: 1rem 1.1rem;
+                text-align: center;
+                @include media-breakpoint-down(sm) {
+                    padding: 1rem 0.9rem;
+                }
                 a { 
                     color: #d3d3d3;
                     text-decoration: none;
@@ -282,16 +287,11 @@ video {
                         cursor: pointer;
                         text-decoration: none; 
                     }
+                    @include media-breakpoint-down(sm) {
+                        font-size: 0.65rem;
+                    }
                 }
             }
-            // @include media-breakpoint-down(sm) {
-            //     flex-direction: column;
-            //     margin: 0 auto;
-            //     padding-left: 0rem;
-            //     li {
-            //         margin: 0 auto;
-            //     }
-            // }
         }
     }
     .footer-social-links {
@@ -306,18 +306,25 @@ video {
                 text-decoration: none;
             }
             @include media-breakpoint-down(sm) {
-                padding: 0.5rem;
-                font-size: 0.8rem;
-                color: #d3d3d3;
+                padding: 0.2rem;
+                font-size: 0.7rem;
             }
         }
     }
     .footer-copyright {
         margin-right: 3rem;
         text-align: right;
+        @include media-breakpoint-down(sm) {
+            margin-right: 1.4rem;
+            font-size: 0.6rem;
+        }
     }
     .footer-locale-selector {
         margin-left: 4rem;
+        @include media-breakpoint-down(sm) {
+            margin-left: 1.4rem;
+            font-size: 0.6rem;
+        }
     }
 }
 // modal changes
