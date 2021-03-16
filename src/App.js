@@ -11,7 +11,7 @@ import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import { faClone } from '@fortawesome/free-regular-svg-icons';
 import axios from 'axios';
-import { faInfoCircle, faQuestionCircle } from '@fortawesome/pro-duotone-svg-icons';
+import { faInfoCircle } from '@fortawesome/pro-duotone-svg-icons';
 import InfoModal from './components/InfoModal';
 
 const NavLinks = [
@@ -96,7 +96,7 @@ const App = () => {
 
   const NavItems = NavLinks.map((link) => <NavLink key={link.linkName} href={link.href}>{link.linkName}</NavLink>)
 
-  const FooterNavItems = FooterLinks.map((link) => <li><a href={link.href}>{link.linkName}</a></li>)
+  const FooterNavItems = FooterLinks.map((link) => <li key={link.linkName}><a href={link.href}>{link.linkName}</a></li>)
 
   return (
     <div className="wrapper">

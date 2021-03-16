@@ -65,12 +65,12 @@ video {
             text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.57);
             padding: 0.56rem 1.3rem;
             cursor: pointer;
+            border-radius: 1.5rem;
             &:hover {
                 background-color: #6225ce;
                 color: #e7e7e7;
                 padding: 0.56rem 1.3rem;
                 text-shadow: none;
-                border-radius: 7px;
             }
         }
     }
@@ -207,6 +207,12 @@ video {
                 font-size: 0.75rem;
             }
         }
+        p {
+            cursor: pointer;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
     .server-status-card-col-right {
         @include media-breakpoint-down(sm) {
@@ -325,6 +331,21 @@ video {
                 }
             }
         }
+    }
+}
+// modal changes
+.modal-content {
+    border-radius: 0.9rem !important;
+    .modal-title {
+        font-weight: 800;
+    }
+    .modal-header {
+        border-bottom: transparent;
+    }
+    p {
+        text-align: left;
+        color: #5a5a5a;
+        font-size: 0.9rem;
     }
 }
 
