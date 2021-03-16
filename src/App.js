@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiscord, faTwitch, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 import '@fontsource/open-sans';
-import { Button, Carousel, Container, Nav, Navbar, NavbarBrand, NavLink, OverlayTrigger, Tooltip} from 'react-bootstrap';
+import { Button, Carousel, Col, Container, Nav, Navbar, NavbarBrand, NavLink, OverlayTrigger, Row, Tooltip} from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import { faClone } from '@fortawesome/free-regular-svg-icons';
@@ -160,7 +160,37 @@ const App = () => {
           </div>
         </div>
       </main>
-      <footer className="footer">
+      <Container className="footer" fluid>
+        <Row>
+          <Col className="footer-branding">
+            <img src={logo_alt} href="#" alt="PN Logo Full" />
+          </Col>
+        </Row>
+        <Row>
+          <Col className="footer-links">
+            <ul>{FooterNavItems}</ul>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <div className="footer-locale-selector">English</div>
+          </Col>
+          <Col>
+            <div className="footer-social-links">
+              <a href="https://twitch.tv/palacenetwork"><FontAwesomeIcon icon={faTwitch} /></a>
+              <a href="https://twitter.com/palacenetwork/"><FontAwesomeIcon icon={faTwitter} /></a>
+              <a href="https://www.youtube.com/channel/UCaOrLxRoCvv-DWfLa0poVFQ"><FontAwesomeIcon icon={faYoutube} /></a>
+              <a href="https://palnet.us/Discord"><FontAwesomeIcon icon={faDiscord} /></a>
+            </div>
+          </Col>
+          <Col>
+            <div className="footer-copyright">
+              &copy; {new Date().getFullYear()} Palace Interactive, Inc.
+            </div>
+          </Col>
+        </Row>
+      </Container>
+      {/* <footer className="footer">
         <div className="footer-branding">
           <img src={logo_alt} href="#" alt="PN Logo full" />
         </div>
@@ -177,7 +207,7 @@ const App = () => {
           </div>
           <div className="nav-section footer-copyright">&copy; {new Date().getFullYear()} Palace Interactive, Inc.</div>
         </div>
-      </footer>
+      </footer> */}
     </div>
 
   );
