@@ -11,6 +11,8 @@ import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import { faClone } from '@fortawesome/free-regular-svg-icons';
 import axios from 'axios';
+import { faInfoCircle, faQuestionCircle } from '@fortawesome/pro-duotone-svg-icons';
+import InfoModal from './components/InfoModal';
 
 const NavLinks = [
   {
@@ -55,6 +57,7 @@ const App = () => {
   const [response, setResponse] = useState({ data: []});
   const [copiedText, setCopiedText] = useState(false);
   const timeoutRef = React.useRef(null);
+  const [modalShow, setModalShow] = useState(false);
 
   const handleSelect = (selectedIndex, e) => {
     setActiveIndex(selectedIndex);
@@ -141,8 +144,10 @@ const App = () => {
           <div className="server-status-card-col-left">
             <h1>Come Experience The Magic Today</h1>
             <h6><b>{(response.data.players > 0) ? response.data.players : 0}</b> Players Online</h6>
-            <p>Palace Network supports Minecraft <b>1.12 - 1.15</b></p>
+            <p onClick={() => setModalShow(true)}><FontAwesomeIcon icon={faInfoCircle}></FontAwesomeIcon> Palace Network supports Minecraft <b>1.12 - 1.15</b></p>
           </div>
+          {/* More info Modal */}
+          <InfoModal show={modalShow} onHide={() => setModalShow(false)} />
           <div className="server-status-card-col-right ms-auto">
 
             <OverlayTrigger key='top' placement='top' overlay={
